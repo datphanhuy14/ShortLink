@@ -8,14 +8,14 @@
             <b class="logo-icon">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img src="./assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                <img src="/assets/images/logo-icon.png" alt="homepage" class="dark-logo"/>
 
             </b>
             <!--End Logo icon -->
             <!-- Logo text -->
             <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="./assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="/assets/images/logo-text.png" alt="homepage" class="dark-logo"/>
 
                         </span>
         </a>
@@ -40,11 +40,11 @@
             <!-- ============================================================== -->
             <!-- Search -->
             <!-- ============================================================== -->
-
             <li class="nav-item hidden-sm-down">
                 <form id="myform" class="app-search ps-3" action="/search" method="GET">
                     <input type="text" id="searchKey" name="searchKey" class="form-control" placeholder="Search for...">
-                    <a href="javascript:{}" onclick="document.getElementById('myform').submit()" class="srh-btn"><i class="ti-search"></i></a>
+                    <a href="javascript:{}" onclick="document.getElementById('myform').submit()" class="srh-btn"><i
+                                class="ti-search"></i></a>
                 </form>
             </li>
         </ul>
@@ -55,14 +55,24 @@
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
+            {% if user.length > 0 %}
+                <div>
+                <h4 > Hi, {{ user[0].username }}!</h4>
+                <button onclick="location.href='/logout'" class="btn btn-info btn-round waves-effect waves-dark"
+                        data-toggle="modal" data-target="#loginModal">
+                    Logout
+                </button>
+                </div>
+            {% else %}
+                <button onclick="location.href='/login'" class="btn btn-info btn-round waves-effect waves-dark"
+                        data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+            {% endif %}
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">
-                        Login
-                    </button>
-                </a>
                 <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
             </li>
+
         </ul>
     </div>
 </nav>

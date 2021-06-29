@@ -1,0 +1,26 @@
+{% if data.length > 0 %}
+<div class="table-responsive">
+    <table class="table user-table no-wrap">
+        <thead>
+        <tr>
+            <th class="border-top-0">#</th>
+            <th class="border-top-0">ShortLink</th>
+            <th class="border-top-0">Full Link</th>
+            <th class="border-top-0">Custom Link</th>
+            <th class="border-top-0">Qr Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for _get in data %}
+            <tr>
+                <td>{{ _get.id }}</td>
+                <td>{{ _get.short_link }}</td>
+                <td>{{ _get.full_link }}</td>
+                <td>{{ _get.custom_link }}</td>
+                <td><a href="/qr/{{ _get.id }}" target="popup" onclick="window.open('/qr/{{ _get.id }}','name','width=600,height=400')">View QRCode</a></td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+</div>

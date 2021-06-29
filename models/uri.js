@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   uri.init({
     full_link: DataTypes.STRING,
+    qr_code: DataTypes.TEXT,
     short_link: DataTypes.STRING,
     custom_link: DataTypes.STRING
   }, {
