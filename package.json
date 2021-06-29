@@ -1,0 +1,27 @@
+{
+  "name": "shortlink",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nanoid": "^3.1.23",
+    "nodemon": "^2.0.7",
+    "nunjucks": "^3.2.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.4"
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
