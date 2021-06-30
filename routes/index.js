@@ -8,8 +8,16 @@ const viewQR = require('../controllers/viewPost.controller')
 
 router.get('/login', controllers.login)
 
-router.get('search', (req, res, next) => {
+router.get('search', async (req, res, next) => {
     console.log(req.query.searchKey);
+    let search = {
+        where: {
+            post_title: {[db.Op.iLike]: '%' + req.query.searchKey + '%'},
+        },
+        raw: true
+    }
+    research = await db.uri.findAll(search);
+    res.json(research)
 })
 
 

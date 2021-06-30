@@ -1,7 +1,6 @@
 const db = require('./db');
 var {nanoid} = require('nanoid')
 const QRCode = require('qrcode')
-let user = []
 
 
 let createShortUrl = async (req, res) => {
@@ -31,7 +30,7 @@ let pagiTable = async function (req, res) {
     });
     let countpage = Math.ceil(showTable.count / limitPagi)
     // res.json(showTable)
-    res.render('table', {pages: countpage, data: showTable.rows, Url: "Table", current: page ,user : user});
+    res.render('table', {pages: countpage, data: showTable.rows, Url: "Table", current: page ,user :req.user});
 };
 
 let shortLink = async (req, res) => {
@@ -58,12 +57,11 @@ let qrCreate = async text => {
     }
 }
 let profile = function (req, res) {
-    res.render('profile', {Url: "Profile" ,user : user});
+    res.render('profile', {Url: "Profile" ,user : req.user});
 }
 let index = function (req, res, next) {
-    user.push(req.user)
-    console.log(user)
-    res.render('index', {user : user});
+    console.log(req.user);
+    res.render('index', {user : req.user});
 }
 let login = (req, res) => {
     res.render('login')
